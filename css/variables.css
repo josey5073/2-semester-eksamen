@@ -1,0 +1,33 @@
+:root {
+  --color-page: #f2f2f2;
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-primary: #ed0011;
+  --color-primary-dark: #d9000f;
+  --color-text: #111111;
+  --color-muted: #5c5c5c;
+  --color-soft: #e8f1f8;
+  --color-soft-strong: #dfeaf2;
+  --color-border: #9d9d9d;
+  --color-border-soft: #dedede;
+
+  --font-family: "Open Sans", Arial, sans-serif;
+
+  --phone-width: 402px;
+  --phone-height: 874px;
+  --phone-radius: 38px;
+  --app-gutter: 31px;
+  --nav-height: 76px;
+
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+}
