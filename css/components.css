@@ -5454,40 +5454,16 @@
     padding-bottom: 24px;
   }
 
-  .auth-form__button,
-  .auth-form__button--login,
-  .auth-screen__bottom-button {
-    position: sticky;
-    bottom: 22px;
-    z-index: 30;
-  }
-
-  .button--fixed,
-  .new-case-screen__button,
-  .success-screen--case-created .success-screen__button,
-  .document-detail-screen__button,
-  .how-screen__button,
-  .process-screen__button,
-  .prices-screen__button {
-    width: min(337px, calc(100vw - 66px)) !important;
-    position: fixed !important;
-    top: auto !important;
-    left: max(33px, calc(50vw - 168px)) !important;
-    bottom: calc(var(--nav-height) + 18px) !important;
-    z-index: 40;
-    margin: 0 !important;
-  }
 
   .new-case-screen .app-shell__scroll,
   .success-screen--case-created .app-shell__scroll,
   .case-uploaded-screen .app-shell__scroll,
   .document-detail-screen .app-shell__scroll {
-    overflow-y: auto;
-    padding-bottom: calc(var(--nav-height) + 110px);
+    overflow: hidden;
+    padding-bottom: 0;
   }
 
-  .new-case-privacy,
-  .more-documents-card {
+  .new-case-privacy {
     display: none;
   }
 }
@@ -5917,5 +5893,1334 @@
     transform: none !important;
     z-index: 3;
     margin: 0 !important;
+  }
+}
+/* Case-created keeps its button in the layout, never over the timeline */
+@media (max-height: 900px) {
+  .success-screen--case-created .app-shell__scroll {
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+
+  .success-screen--case-created .success-screen__button {
+    width: min(304px, calc(100vw - 70px)) !important;
+    position: absolute !important;
+    top: calc(100dvh - var(--nav-height) - 64px) !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: 3;
+    margin: 0 !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .timeline--case-created {
+    top: 486px;
+  }
+
+  .timeline--case-created h2 {
+    margin-bottom: 8px;
+  }
+
+  .timeline--case-created article {
+    min-height: 48px;
+  }
+
+  .timeline--case-created article:not(:last-child)::after {
+    height: 20px;
+    top: 34px;
+  }
+
+  .timeline--case-created small {
+    top: 21px;
+  }
+}
+
+@media (max-height: 760px) {
+  .success-screen--case-created .app-shell__header-text {
+    top: 46px;
+  }
+
+  .success-screen--case-created .success-screen__mark {
+    width: 94px;
+    height: 94px;
+    top: 105px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .success-screen__mark-image {
+    width: 94px;
+    height: 94px;
+  }
+
+  .success-screen--case-created .success-screen__copy {
+    top: 207px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .success-screen--case-created .success-screen__copy h2 {
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  .success-screen--case-created .success-screen__copy p {
+    font-size: 11.5px;
+    line-height: 1.2;
+  }
+
+  .created-case-card {
+    height: 106px;
+    top: 279px;
+    padding: 22px 18px;
+  }
+
+  .created-case-card__date {
+    margin-top: 8px;
+  }
+
+  .timeline--case-created {
+    top: 394px;
+  }
+
+  .timeline--case-created h2 {
+    margin-bottom: 7px;
+    font-size: 15px;
+  }
+
+  .timeline--case-created article {
+    min-height: 34px;
+  }
+
+  .timeline--case-created .timeline__marker {
+    width: 28px;
+    height: 28px;
+  }
+
+  .timeline--case-created .timeline__marker::after {
+    width: 13px;
+    height: 7px;
+    top: 8px;
+    left: 7px;
+    border-width: 0 0 2.5px 2.5px;
+  }
+
+  .timeline--case-created article:not(:last-child)::after {
+    width: 2px;
+    height: 11px;
+    top: 27px;
+    left: 13px;
+  }
+
+  .timeline--case-created strong {
+    top: 0;
+    left: 40px;
+    font-size: 12px;
+  }
+
+  .timeline--case-created small {
+    top: 17px;
+    left: 40px;
+    font-size: 10px;
+  }
+}
+/* Stable mobile-inspect layouts: no floating CTAs over content */
+.app-shell__header {
+  position: relative;
+}
+
+.app-shell__header .profile-button,
+.home-screen .profile-button,
+.cases-screen .profile-button,
+.notifications-screen .profile-button,
+.messages-screen--content .profile-button {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+}
+
+@media (max-height: 840px) {
+  .auth-screen {
+    overflow: hidden !important;
+  }
+
+  .auth-screen--create {
+    padding-top: 90px;
+    padding-bottom: 18px;
+  }
+
+  .auth-screen--create .screen__back,
+  .auth-screen--login .screen__back,
+  .auth-screen--needs .screen__back,
+  .auth-screen--security .screen__back {
+    top: 45px;
+  }
+
+  .auth-screen--create .screen__header {
+    gap: 14px;
+  }
+
+  .auth-screen--create .screen__lead {
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .auth-screen--create .auth-form {
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .auth-screen--create .field__control {
+    height: 58px;
+  }
+
+  .auth-screen--create .field__input {
+    font-size: 16px;
+  }
+
+  .auth-screen--create .auth-form__button {
+    position: static !important;
+    min-height: 48px;
+    margin-top: 28px;
+    transform: none !important;
+  }
+
+  .auth-screen--create .profile-switch {
+    margin-top: 10px;
+    padding-top: 9px;
+  }
+
+  .auth-screen--login {
+    padding-top: 86px;
+    padding-bottom: 18px;
+  }
+
+  .auth-screen--login .screen__header {
+    gap: 14px;
+  }
+
+  .auth-screen--login .auth-form {
+    gap: 12px;
+    margin-top: 34px;
+  }
+
+  .auth-screen--login .field__control {
+    height: 58px;
+  }
+
+  .auth-screen--login .field__input,
+  .auth-screen--login .button--outline {
+    font-size: 16px;
+  }
+
+  .auth-screen--login .forgot-link {
+    margin-top: 14px;
+  }
+
+  .auth-screen--login .auth-form__button--login {
+    position: static !important;
+    min-height: 48px;
+    margin-top: 18px;
+    transform: none !important;
+  }
+
+  .auth-screen--login .divider {
+    margin: 26px 0 22px;
+  }
+
+  .auth-screen--login .button--outline {
+    min-height: 46px;
+  }
+
+  .auth-screen--login .login-switch {
+    margin-top: 28px;
+  }
+
+  .auth-screen--needs {
+    padding-top: 86px;
+    padding-bottom: 24px;
+  }
+
+  .auth-screen--needs .screen__header {
+    gap: 14px;
+  }
+
+  .auth-screen--needs .screen__lead {
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .auth-screen--needs .choice-list {
+    gap: 8px;
+    margin-top: 22px;
+  }
+
+  .auth-screen--needs .choice-card,
+  .auth-screen--needs .choice-card:nth-child(2),
+  .auth-screen--needs .choice-card:nth-child(3),
+  .auth-screen--needs .choice-card:nth-child(4) {
+    min-height: 82px;
+    grid-template-columns: 38px 1fr 20px;
+    gap: 10px;
+    padding: 9px 13px 9px 9px;
+  }
+
+  .auth-screen--needs .choice-card__icon,
+  .auth-screen--needs .choice-card__image {
+    width: 38px;
+    height: 38px;
+  }
+
+  .auth-screen--needs .choice-card__title {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  .auth-screen--needs .choice-card__text {
+    font-size: 12px;
+    line-height: 1.18;
+  }
+
+  .auth-screen--needs .auth-screen__bottom-button,
+  .auth-screen--security .auth-screen__bottom-button {
+    position: static !important;
+    margin-top: auto;
+    transform: none !important;
+  }
+
+  .auth-screen--security {
+    padding-top: 112px;
+  }
+
+  .auth-screen--security .feature-list {
+    gap: 28px;
+    margin-top: 48px;
+  }
+
+  .auth-screen--security .feature-card {
+    min-height: 56px;
+  }
+
+  .auth-screen--security .security-hero,
+  .auth-screen--security .security-hero__image {
+    width: 112px;
+    height: 108px;
+  }
+}
+
+@media (max-height: 840px) {
+  .case-uploaded-screen .app-shell__scroll,
+  .document-detail-screen .app-shell__scroll,
+  .book-screen .app-shell__scroll,
+  .how-screen .app-shell__scroll,
+  .process-screen .app-shell__scroll,
+  .prices-screen .app-shell__scroll {
+    overflow: hidden !important;
+  }
+
+  .more-documents-card {
+    top: calc(100dvh - var(--nav-height) - 74px);
+  }
+
+  .document-detail-screen .app-shell__header-text {
+    top: 48px;
+  }
+
+  .document-detail-screen .screen__back {
+    top: 55px;
+  }
+
+  .document-focus {
+    top: 150px;
+  }
+
+  .document-focus-card {
+    min-height: 230px;
+    gap: 10px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+
+  .document-focus-card__item {
+    font-size: 14px;
+    line-height: 1.16;
+  }
+
+  .document-note {
+    top: 428px;
+  }
+
+  .document-note h2 {
+    font-size: 16px;
+  }
+
+  .document-note p {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.25;
+  }
+
+  .document-detail-screen__button {
+    width: min(311px, calc(100vw - 70px)) !important;
+    position: absolute !important;
+    top: calc(100dvh - var(--nav-height) - 72px) !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+  }
+
+  .book-screen .app-shell__scroll {
+    padding: 42px 28px var(--nav-height) !important;
+  }
+
+  .book-screen .app-shell__header {
+    min-height: 55px;
+    margin-bottom: 8px;
+  }
+
+  .book-screen .screen__title {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .book-screen .screen__lead {
+    margin-top: 2px;
+    font-size: 17px;
+    line-height: 1.2;
+  }
+
+  .meeting-preview {
+    min-height: 78px;
+    margin-bottom: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .meeting-preview__icon-wrap,
+  .meeting-preview__icon {
+    width: 43px;
+    height: 43px;
+  }
+
+  .calendar-card__header {
+    margin-bottom: 8px;
+  }
+
+  .calendar-grid__weekday {
+    min-height: 22px;
+  }
+
+  .calendar-grid__day {
+    min-height: 34px;
+  }
+
+  .book-screen__time-section {
+    margin-top: 8px;
+  }
+
+  .book-screen__time-section h2 {
+    margin-bottom: 7px;
+    font-size: 14px;
+  }
+
+  .time-grid {
+    gap: 8px 10px;
+  }
+
+  .time-chip {
+    min-height: 32px;
+  }
+
+  .book-screen .button--fixed {
+    position: static !important;
+    min-height: 46px;
+    margin-top: 8px;
+    transform: none !important;
+  }
+}
+
+@media (max-height: 860px) {
+  .how-screen .app-shell__scroll,
+  .process-screen .app-shell__scroll,
+  .prices-screen .app-shell__scroll {
+    padding-top: 46px !important;
+    padding-bottom: var(--nav-height) !important;
+  }
+
+  .how-screen .app-shell__header,
+  .process-screen .app-shell__header,
+  .prices-screen .app-shell__header {
+    min-height: 34px;
+  }
+
+  .how-screen__hero-image {
+    width: 126px;
+  }
+
+  .how-screen__intro {
+    margin-top: 12px;
+  }
+
+  .how-screen__features {
+    gap: 14px;
+    margin-left: 8px;
+  }
+
+  .how-feature {
+    min-height: 44px;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 13px;
+  }
+
+  .how-feature__icon-wrap {
+    width: 44px;
+    height: 44px;
+  }
+
+  .how-feature__icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .how-feature__title {
+    font-size: 13px;
+  }
+
+  .how-feature__text {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .how-screen__button,
+  .process-screen__button,
+  .prices-screen__button {
+    position: static !important;
+    min-height: 46px;
+    margin-top: 12px;
+    transform: none !important;
+  }
+
+  .process-screen__timeline {
+    margin-top: 34px;
+  }
+
+  .process-step {
+    min-height: 104px;
+    grid-template-columns: 34px 52px minmax(0, 1fr);
+    column-gap: 18px;
+  }
+
+  .process-step:last-child {
+    min-height: 62px;
+  }
+
+  .process-step__icon-wrap,
+  .process-screen .process-step__icon-wrap {
+    width: 48px;
+    height: 46px;
+  }
+
+  .process-step__icon,
+  .process-screen .process-step__icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .process-step__copy {
+    gap: 4px;
+    padding-top: 4px;
+  }
+
+  .process-step__title {
+    font-size: 13px;
+  }
+
+  .process-step__text {
+    font-size: 11px;
+    line-height: 1.18;
+  }
+
+  .prices-screen__heading {
+    margin: 10px 0 10px;
+    font-size: 17px;
+  }
+
+  .prices-screen__list {
+    gap: 8px;
+  }
+
+  .price-card__header {
+    min-height: 42px;
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 8px;
+    padding: 6px 12px 0;
+  }
+
+  .price-card__package-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .price-card__eyebrow {
+    font-size: 10px;
+  }
+
+  .price-card__title {
+    font-size: 13px;
+  }
+
+  .price-card__features {
+    gap: 2px;
+    padding: 4px 8px 6px 24px;
+  }
+
+  .price-card__feature {
+    grid-template-columns: 12px minmax(0, 1fr);
+    gap: 4px;
+    font-size: 10px;
+    line-height: 1.12;
+  }
+
+  .price-card__check {
+    width: 12px;
+    height: 12px;
+  }
+
+  .price-card__footer {
+    min-height: 29px;
+  }
+
+  .price-card__price {
+    font-size: 17px;
+  }
+
+  .price-card__details {
+    font-size: 11px;
+  }
+}
+
+@media (max-height: 840px) {
+  .profile-screen__scroll {
+    overflow: hidden !important;
+    padding-bottom: var(--nav-height) !important;
+  }
+
+  .profile-screen__hero {
+    margin-bottom: 28px;
+  }
+
+  .profile-section + .profile-section {
+    margin-top: 28px;
+  }
+
+  .profile-screen__actions {
+    width: min(337px, calc(100vw - 66px));
+    position: absolute !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: calc(var(--nav-height) + 14px) !important;
+    z-index: 3;
+    margin: 0 !important;
+    transform: translateX(-50%) !important;
+  }
+}
+/* Fixed profile icon position across tab screens */
+.home-screen .profile-button,
+.cases-screen .profile-button,
+.notifications-screen .profile-button,
+.messages-screen--content .profile-button {
+  position: fixed !important;
+  top: calc(max(0px, (100dvh - var(--phone-height)) / 2) + 68px) !important;
+  right: calc(max(0px, (100vw - var(--phone-width)) / 2) + 34px) !important;
+  left: auto !important;
+  z-index: 70;
+  margin: 0 !important;
+}
+
+@media (max-width: 479px) {
+  .home-screen .profile-button,
+  .cases-screen .profile-button,
+  .notifications-screen .profile-button,
+  .messages-screen--content .profile-button {
+    top: 68px !important;
+    right: 34px !important;
+  }
+}
+
+/* Extra compact informational screens for the shortest mobile inspect viewport */
+@media (max-height: 760px) {
+  .process-screen .app-shell__scroll,
+  .prices-screen .app-shell__scroll {
+    overflow: hidden !important;
+    padding-top: 42px !important;
+    padding-bottom: var(--nav-height) !important;
+  }
+
+  .process-screen__timeline {
+    margin-top: 20px !important;
+  }
+
+  .process-step {
+    min-height: 80px !important;
+    grid-template-columns: 30px 44px minmax(0, 1fr) !important;
+    column-gap: 13px !important;
+  }
+
+  .process-step:last-child {
+    min-height: 48px !important;
+  }
+
+  .process-step__icon-wrap,
+  .process-screen .process-step__icon-wrap {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .process-step__icon,
+  .process-screen .process-step__icon {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .process-step__copy {
+    gap: 2px !important;
+    padding-top: 1px !important;
+  }
+
+  .process-step__title {
+    font-size: 12px !important;
+    line-height: 1.15 !important;
+  }
+
+  .process-step__text {
+    font-size: 10px !important;
+    line-height: 1.12 !important;
+  }
+
+  .process-screen__button {
+    min-height: 44px !important;
+    margin-top: 4px !important;
+    font-size: 18px !important;
+  }
+
+  .prices-screen__heading {
+    margin: 6px 0 7px !important;
+    font-size: 15px !important;
+    line-height: 1.15 !important;
+  }
+
+  .prices-screen__list {
+    gap: 6px !important;
+  }
+
+  .price-card__header {
+    min-height: 32px !important;
+    grid-template-columns: 26px minmax(0, 1fr) !important;
+    gap: 6px !important;
+    padding: 4px 9px 0 !important;
+  }
+
+  .price-card__package-icon {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .price-card__eyebrow {
+    font-size: 9px !important;
+  }
+
+  .price-card__title {
+    font-size: 11px !important;
+  }
+
+  .price-card__features {
+    gap: 0 !important;
+    padding: 2px 7px 4px 20px !important;
+  }
+
+  .price-card__feature {
+    grid-template-columns: 10px minmax(0, 1fr) !important;
+    gap: 3px !important;
+    font-size: 9px !important;
+    line-height: 1.05 !important;
+  }
+
+  .price-card__check {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  .price-card__footer {
+    min-height: 24px !important;
+    padding-left: 10px !important;
+  }
+
+  .price-card__price {
+    font-size: 15px !important;
+  }
+
+  .price-card__details {
+    font-size: 10px !important;
+  }
+
+  .prices-screen__button {
+    min-height: 44px !important;
+    margin-top: 6px !important;
+    font-size: 18px !important;
+  }
+}
+@media (max-height: 760px) {
+  .process-step__marker,
+  .process-screen .process-step__marker {
+    height: 80px !important;
+    min-height: 80px !important;
+  }
+
+  .process-step:last-child .process-step__marker,
+  .process-screen .process-step:last-child .process-step__marker {
+    height: 48px !important;
+    min-height: 48px !important;
+  }
+
+  .process-screen__timeline-image {
+    height: 330px !important;
+  }
+}
+
+.messages-screen .profile-button {
+  position: fixed !important;
+  top: calc(max(0px, (100dvh - var(--phone-height)) / 2) + 68px) !important;
+  right: calc(max(0px, (100vw - var(--phone-width)) / 2) + 34px) !important;
+  left: auto !important;
+  z-index: 70;
+  margin: 0 !important;
+}
+
+@media (max-width: 479px) {
+  .messages-screen .profile-button {
+    top: 68px !important;
+    right: 34px !important;
+  }
+}
+/* Normal phone height: remove tiny CTA drift without changing the whole layout */
+@media (min-height: 841px) and (max-height: 900px) {
+  .how-screen .app-shell__scroll,
+  .prices-screen .app-shell__scroll,
+  .book-screen .app-shell__scroll {
+    overflow: hidden !important;
+  }
+
+  .prices-screen__button {
+    margin-top: 12px !important;
+  }
+}
+/* Final mobile inspect guardrails: buttons stay in the layout and do not cover content. */
+@media (max-height: 840px) {
+  .profile-screen__scroll {
+    overflow: hidden !important;
+    padding: 46px 33px var(--nav-height) !important;
+  }
+
+  .profile-screen__hero {
+    grid-template-columns: 70px minmax(0, 1fr) !important;
+    gap: 16px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .profile-screen__avatar {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .profile-screen__identity h1 {
+    margin-bottom: 4px !important;
+    font-size: 24px !important;
+    line-height: 1.12 !important;
+  }
+
+  .profile-screen__identity p {
+    font-size: 16px !important;
+    line-height: 1.2 !important;
+  }
+
+  .profile-section h2 {
+    margin-bottom: 10px !important;
+    font-size: 17px !important;
+    line-height: 1.2 !important;
+  }
+
+  .profile-section + .profile-section {
+    margin-top: 20px !important;
+  }
+
+  .profile-section__list {
+    gap: 7px !important;
+  }
+
+  .profile-row {
+    min-height: 29px !important;
+    grid-template-columns: 27px minmax(0, 1fr) 18px !important;
+    gap: 10px !important;
+  }
+
+  .profile-row__icon {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .profile-row__label,
+  .profile-row__value {
+    font-size: 15.5px !important;
+    line-height: 1.15 !important;
+  }
+
+  .profile-row__arrow {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .profile-screen__actions {
+    width: 100% !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: auto !important;
+    gap: 9px !important;
+    margin-top: 15px !important;
+    transform: none !important;
+  }
+
+  .profile-screen__button,
+  .profile-screen__reset-button {
+    min-height: 43px !important;
+    font-size: 18px !important;
+  }
+}
+
+@media (max-height: 700px) {
+  .profile-screen__scroll {
+    padding-top: 42px !important;
+  }
+
+  .profile-screen__hero {
+    grid-template-columns: 64px minmax(0, 1fr) !important;
+    gap: 14px !important;
+    margin-bottom: 17px !important;
+  }
+
+  .profile-screen__avatar {
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  .profile-screen__identity h1 {
+    font-size: 22px !important;
+  }
+
+  .profile-section + .profile-section {
+    margin-top: 17px !important;
+  }
+
+  .profile-row {
+    min-height: 27px !important;
+  }
+
+  .profile-screen__actions {
+    gap: 8px !important;
+    margin-top: 12px !important;
+  }
+
+  .profile-screen__button,
+  .profile-screen__reset-button {
+    min-height: 41px !important;
+  }
+}
+
+@media (min-height: 841px) and (max-height: 900px) {
+  .book-screen .app-shell__scroll {
+    padding-top: 64px !important;
+    overflow: hidden !important;
+  }
+
+  .book-screen .app-shell__header {
+    margin-bottom: 12px !important;
+  }
+
+  .meeting-preview {
+    margin-bottom: 18px !important;
+  }
+
+  .calendar-card__header {
+    margin-bottom: 14px !important;
+  }
+
+  .calendar-grid__weekday {
+    min-height: 27px !important;
+  }
+
+  .calendar-grid__day {
+    min-height: 43px !important;
+  }
+
+  .book-screen__time-section {
+    margin-top: 16px !important;
+  }
+
+  .book-screen__time-section h2 {
+    margin-bottom: 9px !important;
+  }
+
+  .time-grid {
+    gap: 9px 12px !important;
+  }
+
+  .time-chip {
+    min-height: 36px !important;
+  }
+
+  .book-screen .button--fixed {
+    position: static !important;
+    min-height: 46px !important;
+    margin-top: 10px !important;
+    transform: none !important;
+  }
+}
+
+@media (min-height: 901px) and (max-height: 940px) {
+  .success-screen--case-created .app-shell__scroll {
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+
+  .timeline--case-created {
+    top: 486px !important;
+  }
+
+  .timeline--case-created h2 {
+    margin-bottom: 8px !important;
+  }
+
+  .timeline--case-created article {
+    min-height: 48px !important;
+  }
+
+  .timeline--case-created article:not(:last-child)::after {
+    height: 20px !important;
+    top: 34px !important;
+  }
+
+  .timeline--case-created small {
+    top: 21px !important;
+  }
+
+  .success-screen--case-created .success-screen__button {
+    width: min(304px, calc(100vw - 70px)) !important;
+    position: absolute !important;
+    top: calc(100dvh - var(--nav-height) - 64px) !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    transform: translateX(-50%) !important;
+  }
+}
+@media (min-height: 841px) and (max-height: 860px) {
+  .profile-screen__scroll {
+    overflow: hidden !important;
+    padding: 46px 33px var(--nav-height) !important;
+  }
+
+  .profile-screen__hero {
+    grid-template-columns: 70px minmax(0, 1fr) !important;
+    gap: 16px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .profile-screen__avatar {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .profile-screen__identity h1 {
+    margin-bottom: 4px !important;
+    font-size: 24px !important;
+    line-height: 1.12 !important;
+  }
+
+  .profile-screen__identity p {
+    font-size: 16px !important;
+    line-height: 1.2 !important;
+  }
+
+  .profile-section h2 {
+    margin-bottom: 10px !important;
+    font-size: 17px !important;
+    line-height: 1.2 !important;
+  }
+
+  .profile-section + .profile-section {
+    margin-top: 20px !important;
+  }
+
+  .profile-section__list {
+    gap: 7px !important;
+  }
+
+  .profile-row {
+    min-height: 29px !important;
+    grid-template-columns: 27px minmax(0, 1fr) 18px !important;
+    gap: 10px !important;
+  }
+
+  .profile-row__icon {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .profile-row__label,
+  .profile-row__value {
+    font-size: 15.5px !important;
+    line-height: 1.15 !important;
+  }
+
+  .profile-row__arrow {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .profile-screen__actions {
+    width: 100% !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: auto !important;
+    gap: 9px !important;
+    margin-top: 15px !important;
+    transform: none !important;
+  }
+
+  .profile-screen__button,
+  .profile-screen__reset-button {
+    min-height: 43px !important;
+    font-size: 18px !important;
+  }
+
+  .new-case-screen--step-two .new-case-screen__button {
+    top: 704px !important;
+  }
+}
+/* Visual balance: use the free vertical space without letting CTAs overlap the nav. */
+@media (max-height: 700px) {
+  .profile-screen__scroll {
+    padding-top: 62px !important;
+  }
+}
+
+@media (min-height: 701px) and (max-height: 860px) {
+  .profile-screen__scroll {
+    padding-top: 76px !important;
+  }
+}
+
+@media (min-height: 761px) and (max-height: 840px) {
+  .book-screen .app-shell__scroll {
+    padding-top: 78px !important;
+  }
+
+  .how-screen .app-shell__scroll {
+    padding-top: 68px !important;
+  }
+
+  .new-case-screen--step-two .case-stepper {
+    top: 162px !important;
+  }
+
+  .new-case-screen--step-two .new-case-section {
+    top: 217px !important;
+  }
+
+  .new-case-screen--step-two .new-case-topic-list {
+    top: 283px !important;
+  }
+
+  .new-case-screen--step-two .new-case-screen__button {
+    top: 647px !important;
+  }
+}
+@media (min-height: 761px) and (max-height: 860px) {
+  .how-screen .app-shell__scroll,
+  .process-screen .app-shell__scroll,
+  .prices-screen .app-shell__scroll {
+    padding-top: 68px !important;
+  }
+}
+/* Phone inspect rhythm: keep prototype placement on normal mobile heights. */
+@media (min-height: 761px) and (max-height: 860px) {
+  .profile-screen__scroll {
+    overflow: hidden !important;
+    padding: 62px 32px var(--nav-height) !important;
+  }
+
+  .profile-screen__hero {
+    grid-template-columns: 90px minmax(0, 1fr) !important;
+    gap: 19px !important;
+    margin-bottom: 50px !important;
+  }
+
+  .profile-screen__avatar {
+    width: 90px !important;
+    height: 90px !important;
+  }
+
+  .profile-screen__identity h1 {
+    margin-bottom: 8px !important;
+    font-size: 27px !important;
+    line-height: 1.3 !important;
+  }
+
+  .profile-screen__identity p {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+  }
+
+  .profile-section h2 {
+    margin-bottom: 18px !important;
+    font-size: 18px !important;
+  }
+
+  .profile-section + .profile-section {
+    margin-top: 64px !important;
+  }
+
+  .profile-section__list {
+    gap: 13px !important;
+  }
+
+  .profile-row {
+    min-height: 36px !important;
+    grid-template-columns: 32px minmax(0, 1fr) 22px !important;
+    gap: 13px !important;
+  }
+
+  .profile-row__icon {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .profile-row__label,
+  .profile-row__value {
+    font-size: 18px !important;
+    line-height: 1.15 !important;
+  }
+
+  .profile-row__arrow {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .profile-screen__actions {
+    width: 100% !important;
+    position: static !important;
+    gap: 9px !important;
+    margin-top: 18px !important;
+    transform: none !important;
+  }
+
+  .profile-screen__button,
+  .profile-screen__reset-button {
+    min-height: 43px !important;
+    font-size: 18px !important;
+  }
+
+  .how-screen .app-shell__scroll {
+    padding-top: 106px !important;
+  }
+
+  .process-screen .app-shell__scroll,
+  .prices-screen .app-shell__scroll {
+    padding-top: 98px !important;
+  }
+}
+
+@media (min-height: 761px) and (max-height: 840px) {
+  .auth-screen--create {
+    padding-top: 110px !important;
+  }
+
+  .auth-screen--create .screen__back,
+  .auth-screen--login .screen__back {
+    top: 58px !important;
+  }
+
+  .auth-screen--create .screen__header {
+    gap: 20px !important;
+  }
+
+  .auth-screen--create .auth-form {
+    gap: 12px !important;
+    margin-top: 36px !important;
+  }
+
+  .auth-screen--create .field__control {
+    height: 62px !important;
+  }
+
+  .auth-screen--create .auth-form__button {
+    margin-top: 42px !important;
+  }
+
+  .auth-screen--login {
+    padding-top: 110px !important;
+  }
+
+  .auth-screen--login .screen__header {
+    gap: 24px !important;
+  }
+
+  .auth-screen--login .auth-form {
+    gap: 13px !important;
+    margin-top: 45px !important;
+  }
+
+  .auth-screen--login .field__control {
+    height: 62px !important;
+  }
+
+  .auth-screen--login .forgot-link {
+    margin-top: 18px !important;
+  }
+
+  .auth-screen--login .auth-form__button--login {
+    margin-top: 22px !important;
+  }
+
+  .auth-screen--login .divider {
+    margin: 34px 0 28px !important;
+  }
+
+  .auth-screen--login .login-switch {
+    margin-top: 38px !important;
+  }
+}
+@media (min-height: 761px) and (max-height: 840px) {
+  .profile-screen__actions {
+    margin-top: 10px !important;
+  }
+
+  .profile-screen__button,
+  .profile-screen__reset-button {
+    min-height: 41px !important;
+  }
+
+  .process-screen .app-shell__scroll {
+    padding-top: 88px !important;
   }
 }
