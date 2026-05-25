@@ -1,4 +1,4 @@
-﻿.screen {
+.screen {
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
@@ -2594,7 +2594,6 @@
   overflow: hidden;
   padding: 0;
 }
-
 .new-case-screen .app-shell__header,
 .success-screen--case-created .app-shell__header {
   min-height: 0;
@@ -2947,10 +2946,14 @@
 .new-case-screen__button {
   height: 50px;
   min-height: 50px;
-  position: absolute;
   border-radius: 12px;
   font-size: 20px;
   font-weight: 600;
+}
+
+.new-case-screen .new-case-screen__button {
+  position: absolute;
+  z-index: 3;
 }
 
 .new-case-screen--step-one .new-case-screen__button {
@@ -3136,6 +3139,7 @@
 
 .success-screen--case-created .success-screen__button {
   width: 304px;
+  position: absolute;
   top: 736px;
   left: 47px;
 }
@@ -5688,5 +5692,230 @@
     width: 376px;
     max-width: calc(100vw - 14px);
     margin-bottom: 6px;
+  }
+}
+
+/* Compact opret-ny-sag flow for low mobile inspect viewports */
+@media (max-height: 760px) {
+  .new-case-screen .app-shell__scroll {
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+
+  .new-case-screen .app-shell__header-text {
+    top: 49px;
+  }
+
+  .new-case-screen .screen__back {
+    top: 54px;
+    left: 25px;
+  }
+
+  .case-stepper,
+  .new-case-screen--step-two .case-stepper,
+  .new-case-screen--step-three .case-stepper {
+    top: 105px;
+    left: 43px;
+  }
+
+  .new-case-section,
+  .new-case-screen--step-three .new-case-section {
+    top: 149px;
+    left: 43px;
+  }
+
+  .new-case-section__title {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .new-case-section__text {
+    margin-top: 7px;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .new-case-form {
+    top: 220px;
+    left: 43px;
+    gap: 9px;
+  }
+
+  .new-case-field {
+    height: 55px;
+    padding: 7px 12px 6px;
+  }
+
+  .new-case-field__label,
+  .new-case-field__input {
+    font-size: 13px;
+  }
+
+  .new-case-field__input {
+    margin-top: 3px;
+  }
+
+  .new-case-topic-list {
+    width: 326px;
+    height: 292px;
+    top: 220px;
+    left: 32px;
+  }
+
+  .new-case-topic {
+    grid-template-columns: 24px minmax(0, 1fr) 20px;
+    gap: 8px;
+    padding: 6px 14px 6px 12px;
+  }
+
+  .new-case-topic__image {
+    width: 23px;
+    height: 26px;
+  }
+
+  .new-case-topic__title {
+    margin-bottom: 2px;
+    font-size: 11px;
+  }
+
+  .new-case-topic__text {
+    font-size: 10.5px;
+    line-height: 1.15;
+  }
+
+  .new-case-topic__checkbox {
+    width: 20px;
+    height: 20px;
+  }
+
+  .new-case-upload-list {
+    top: 220px;
+    left: 43px;
+    gap: 7px;
+  }
+
+  .new-case-upload {
+    height: 52px;
+    grid-template-columns: 30px minmax(0, 1fr) 24px;
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .new-case-upload__image {
+    width: 28px;
+    height: 28px;
+  }
+
+  .new-case-upload__title {
+    font-size: 13px;
+  }
+
+  .new-case-upload__text {
+    font-size: 12px;
+  }
+
+  .new-case-upload__action {
+    width: 24px;
+    height: 24px;
+  }
+
+  .new-case-upload__action:empty::before {
+    height: 20px;
+  }
+
+  .new-case-upload__action:empty::after {
+    width: 20px;
+  }
+
+  .new-case-screen .new-case-screen__button {
+    position: absolute !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 3;
+    margin: 0 !important;
+  }
+
+  .new-case-screen--step-one .new-case-screen__button {
+    width: 304px !important;
+    top: 526px !important;
+    left: 43px !important;
+  }
+
+  .new-case-screen--step-two .new-case-screen__button {
+    width: 326px !important;
+    top: 526px !important;
+    left: 32px !important;
+  }
+
+  .new-case-screen--step-three .new-case-screen__button {
+    width: 299px !important;
+    top: 526px !important;
+    left: 45px !important;
+  }
+
+  .new-case-privacy {
+    display: none !important;
+  }
+}
+/* Step 2 only: keep Fortsaet visible above nav in medium-low mobile inspect viewports */
+@media (min-height: 761px) and (max-height: 840px) {
+  .new-case-screen--step-two .app-shell__scroll {
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+
+  .new-case-screen--step-two .app-shell__header-text {
+    top: 55px;
+  }
+
+  .new-case-screen--step-two .screen__back {
+    top: 61px;
+  }
+
+  .new-case-screen--step-two .case-stepper {
+    top: 116px;
+  }
+
+  .new-case-screen--step-two .new-case-section {
+    top: 167px;
+  }
+
+  .new-case-screen--step-two .new-case-section__text {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  .new-case-screen--step-two .new-case-topic-list {
+    height: 342px;
+    top: 263px;
+  }
+
+  .new-case-screen--step-two .new-case-topic {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+
+  .new-case-screen--step-two .new-case-topic__title {
+    margin-bottom: 2px;
+    font-size: 11.5px;
+  }
+
+  .new-case-screen--step-two .new-case-topic__text {
+    font-size: 11px;
+    line-height: 1.16;
+  }
+
+  .new-case-screen--step-two .new-case-screen__button {
+    width: 328px !important;
+    position: absolute !important;
+    top: 627px !important;
+    left: 35px !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 3;
+    margin: 0 !important;
   }
 }
